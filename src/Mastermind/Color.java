@@ -10,7 +10,7 @@ enum Color {
 
     private char keyword;
 
-    Color(char keyword) {
+    private Color(char keyword) {
         this.keyword = keyword;
     }
 

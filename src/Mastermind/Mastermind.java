@@ -7,7 +7,8 @@ public class Mastermind {
     public void play(){
         IO.getInstance().printText("-----MASTERMIND-----");
         do{
-            new Board().play();
+            this.board = new Board();
+            this.board.play();
         }while(this.isResumed());
 }
 
