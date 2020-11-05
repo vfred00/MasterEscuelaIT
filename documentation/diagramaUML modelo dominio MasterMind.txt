@@ -1,0 +1,29 @@
+@startuml
+class Mastermind {
+}
+class Board
+class Player
+class Proposal
+class Combination
+class Color
+class Red
+class Blue
+class Yellow
+class Green
+class Orange
+class Pink
+Mastermind *-down->  Board
+Mastermind *-down-> Player
+Board *-down-> Combination
+Board *-down-> Proposal
+Player --> Proposal
+Player *-> Board
+Proposal o-down-> Color
+Combination o-down-> Color
+Color <|-down- Red
+Color <|-down- Blue
+Color <|-down- Green
+Color <|-down- Orange
+Color <|-down- Yellow
+Color <|-down- Pink
+@endumll

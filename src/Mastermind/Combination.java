@@ -1,18 +1,22 @@
 package Mastermind;
 
+import java.util.ArrayList;
+
 public class Combination {
 
-    protected Color[] colorList;
+    protected ArrayList<Color> colorList;
 
-    public void compare(Combination combination){
-
+    public Combination(){
+        colorList = new ArrayList<Color>();
     }
 
-    public void check(){
-
+    protected void show(){
+        for(Color color : colorList){
+            IO.getInstance().printText(color);
+        }
     }
 
-    public void show(){
-
+    protected int size(){
+        return this.colorList.size();
     }
 }

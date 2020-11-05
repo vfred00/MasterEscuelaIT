@@ -4,34 +4,53 @@ import java.util.Arrays;
 
 public class Board {
 
-    private Attempt[] attempts;
+    private Result[] results;
     private Secret secret;
     private Proposed proposed;
+    private int countResults;
+    private boolean win;
 
     public Board(){
-        attempts = new Attempt[10];
-        secret.getRandom();
-        for (int i = 0; i < 10; i++){ //pendiente de hacer con lambdas
-            attempts[i] = null;
-        }
+        results = new Result[10];
     }
 
     public void show(){
-        System.out.println(howManyAttempts() + " attempt(s):");
+        do {
+            IO.getInstance().printText(countResults + " attempt(s):");
+            //secret.show(); //for trace purpose only
+            secret.getAsterisks();
+            this.printResult();
+            this.tryProposedResult();
+        }while ( this.countResults < 10 && !this.win );
         secret.getAsterisks();
-        proposed.setCombination();
+        this.printResult();
     }
 
-
-
-    public int howManyAttempts(){
-        int count = 0;
-        for (int i = 0; i < attempts.length; i++){
-            if (attempts[i] != null){
-                count++;
+    private void tryProposedResult() {
+            this.proposed = new Proposed();
+            results[ countResults ] = new Result(secret, proposed);
+            if (this.results[ countResults ].numberOfBlackPieces() == 4){
+                IO.getInstance().printText("You've won!!! ;-)");
+                win = true;
             }
-        }
-        return count;
+            if ( countResults == 9 ){
+                IO.getInstance().printText("You've lost!!! :-(");
+            }
+            countResults++;
+
     }
 
+    private void printResult(){
+        Arrays.stream(results).filter(element -> element != null)
+                .forEach(Result::showResult);
+    }
+
+    public void countToZero(){
+        countResults = 0;
+        secret = new Secret();
+        win = false;
+        for (int i = 0; i < 10; i++){
+            results[i] = null;
+        }
+    }
 }

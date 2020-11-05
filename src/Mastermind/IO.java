@@ -14,6 +14,7 @@ public class IO {
         }
         return INSTANCE;
     }
+
     private IO(){
 
     }
@@ -51,5 +52,13 @@ public class IO {
             }
         }while(!ok);
     return result;
+    }
+
+    public void printText(Object object){
+        System.out.println(object);
+    }
+
+    public void printTextWithoutNewLine(Object object){
+        System.out.print(object);
     }
 }
