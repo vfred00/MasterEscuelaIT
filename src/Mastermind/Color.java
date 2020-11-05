@@ -23,7 +23,7 @@ enum Color {
         return null;
     }
 
-    public int getKeyword() {
+    public char getKeyword() {
         return this.keyword;
     }
 }

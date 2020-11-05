@@ -24,7 +24,7 @@ public class Result {
 
     public void showResult() {
         for (int i = 0; i < this.proposedCombination.size(); i++) {
-            IO.getInstance().printTextWithoutNewLine((char) proposedCombination.colorList.get(i).getKeyword());
+            IO.getInstance().printTextWithoutNewLine( proposedCombination.colorList.get(i).getKeyword() );
         }
         IO.getInstance().printText("-->" + this.piecesBlack
                 + " Blacks and "
