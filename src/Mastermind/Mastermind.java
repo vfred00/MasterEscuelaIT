@@ -4,16 +4,10 @@ public class Mastermind {
 
     private Board board;
 
-    public Mastermind(){
-        board = new Board();
-    }
-
     public void play(){
         IO.getInstance().printText("-----MASTERMIND-----");
         do{
-            board.countToZero();
-            board.show();
-
+            new Board().play();
         }while(this.isResumed());
 }
 

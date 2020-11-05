@@ -1,54 +1,46 @@
 package Mastermind;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Board {
 
-    private Result[] results;
+    //private Result[] results;
+    List<Result> resultList;
     private Secret secret;
-    private Proposed proposed;
+    private ProposedCombination proposedCombination;
     private int countResults;
     private boolean win;
+    private static final int ATTEMPTS = 10;
 
     public Board(){
-        results = new Result[10];
-    }
-
-    public void show(){
-        do {
-            IO.getInstance().printText(countResults + " attempt(s):");
-            //secret.show(); //for trace purpose only
-            secret.getAsterisks();
-            this.printResult();
-            this.tryProposedResult();
-        }while ( this.countResults < 10 && !this.win );
-    }
-
-    private void tryProposedResult() {
-            this.proposed = new Proposed();
-            results[ countResults ] = new Result(secret, proposed);
-            if (this.results[ countResults ].numberOfBlackPieces() == 4){
-                IO.getInstance().printText("You've won!!! ;-)");
-                win = true;
-            }
-            if ( countResults == 9 ){
-                IO.getInstance().printText("You've lost!!! :-(");
-            }
-            countResults++;
-
-    }
-
-    private void printResult(){
-        Arrays.stream(results).filter(element -> element != null)
-                .forEach(Result::showResult);
-    }
-
-    public void countToZero(){
+        resultList = new ArrayList<Result>();
         countResults = 0;
         secret = new Secret();
         win = false;
-        for (int i = 0; i < 10; i++){
-            results[i] = null;
-        }
+        ProposedCombination proposedCombination;
+    }
+
+    public void play(){
+        Result result;
+        do {
+            IO.getInstance().printText(countResults + " attempt(s):");
+            secret.showAsterisks();
+            //secret.show(); //for trace purpose only
+            result = new Result(secret, new ProposedCombination());
+            resultList.add(new Result(secret, new ProposedCombination()));
+            this.showAllResults();
+
+            if ( countResults == ATTEMPTS){
+                IO.getInstance().printText("You've lost!!! :-(");
+            }
+            countResults++;
+        }while ( this.countResults < ATTEMPTS && result.numberOfBlackPieces() != 4);
+    }
+
+    private void showAllResults(){
+        resultList.stream().filter(element -> element != null)
+                            .forEach(Result::showResult);
     }
 }

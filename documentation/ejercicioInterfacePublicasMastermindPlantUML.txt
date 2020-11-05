@@ -16,7 +16,7 @@ class IO{
 class Board{
 - results : Result[]
 - secret : Secret
-- proposed : Proposed
+- proposedCombination : Proposed
 - countResults : int
 - win : boolean
 + show() :void
@@ -55,11 +55,11 @@ class Combination{
 
 class Result
 {
-- proposed : Proposed
+- proposedCombination : Proposed
 - secret : Secret
 - piecesBlack : int
 - piecesWhite : int
-+ Result(Proposed proposed)
++ Result(Proposed proposedCombination)
 + showResult() : void
 + numberOfBlackPieces() : int
 }

@@ -5,11 +5,11 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Proposed extends Combination{
+public class ProposedCombination extends Combination{
 
     private String userInput;
     private static final  Pattern PATTERN = Pattern.compile( "[^rbyopg]", Pattern.CASE_INSENSITIVE);
-    public Proposed(){
+    public ProposedCombination(){
         super();
         do {
             userInput = IO.getInstance().readText("Propose a combination: ");

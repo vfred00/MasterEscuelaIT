@@ -26,7 +26,7 @@ public class Secret extends Combination{
         return this;
     }
 
-    public void getAsterisks(){
+    public void showAsterisks(){
         StringBuilder asterisks = new StringBuilder();
         for (Color color : colorList){
             asterisks.append("x");
