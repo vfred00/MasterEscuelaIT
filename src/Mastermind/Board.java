@@ -29,12 +29,10 @@ public class Board {
             if ( countResults == ATTEMPTS){
                 IO.getInstance().printText("You've lost!!! :-(");
             }
-
         }while ( this.countResults < ATTEMPTS && result.numberOfBlackPieces() != 4);
     }
 
     private void showAllResults(){
-        resultList.stream().filter(element -> element != null)
-                            .forEach(Result::showResult);
+        resultList.stream().forEach(Result::showResult);
     }
 }
