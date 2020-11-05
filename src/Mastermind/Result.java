@@ -22,7 +22,7 @@ public class Result {
         }
     }
 
-    public void showResult() {
+    public void showBlackAndWhite() {
         for (int i = 0; i < this.proposedCombination.size(); i++) {
             IO.getInstance().printTextWithoutNewLine( proposedCombination.colorList.get(i).getKeyword() );
         }

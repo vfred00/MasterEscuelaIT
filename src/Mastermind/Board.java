@@ -1,7 +1,6 @@
 package Mastermind;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -33,6 +32,6 @@ public class Board {
     }
 
     private void showAllResults(){
-        resultList.stream().forEach(Result::showResult);
+        resultList.stream().forEach(Result::showBlackAndWhite);
     }
 }
