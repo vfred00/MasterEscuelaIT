@@ -22,8 +22,6 @@ public class Board {
             this.printResult();
             this.tryProposedResult();
         }while ( this.countResults < 10 && !this.win );
-        secret.getAsterisks();
-        this.printResult();
     }
 
     private void tryProposedResult() {
