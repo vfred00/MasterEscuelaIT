@@ -13,8 +13,10 @@ public class Turn {
 
     public Player next(){
         if (this.current == playerBlack){
+            this.current = playerWhite
             return playerWhite;
         }
+        this.current = playerBlack;
         return playerBlack;
     }
 
