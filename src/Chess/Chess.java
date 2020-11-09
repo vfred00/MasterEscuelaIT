@@ -18,16 +18,16 @@ public class Chess {
             int originY = IO.getInstance().readInt("origen Y: ");
             int destinationX = IO.getInstance().readInt("destino X: ");
             int destinationY = IO.getInstance().readInt("destino Y: ");
-            Coordinate userGetCoordinateOrigin = new Coordinate(originX,originY);
-            Coordinate userGetCoordinateDestination = new Coordinate(destinationX,destinationY);
-            if (board.isPieceOnCordinate(userGetCoordinateOrigin) && board.getPiece(userGetCoordinateOrigin).getColor() == turn.getCurrentColor()){
-                Piece piece = board.getPiece(userGetCoordinateOrigin);
-                piece.isValidMovement(userGetCoordinateOrigin, userGetCoordinateDestination);
-                if (board.isPieceOnCordinate(userGetCoordinateDestination)){
-                    board.getPiece(userGetCoordinateDestination).kill();
-                    board.setCoordinateOnPiece(userGetCoordinateOrigin,userGetCoordinateDestination);
+            Coordinate userOrigin = new Coordinate(originX,originY);
+            Coordinate userDestination = new Coordinate(destinationX,destinationY);
+            if (board.isPieceOnCordinate(userOrigin) && board.getPiece(userOrigin).getColor() == turn.getCurrentColor()){
+                Piece piece = board.getPiece(userOrigin);
+                piece.isValidMovement(userOrigin, userDestination);
+                if (board.isPieceOnCordinate(userDestination)){
+                    board.getPiece(userDestination).kill();
+                    board.setCoordinateOnPiece(userOrigin,userDestination);
                 } else {
-                    board.setCoordinateOnPiece(userGetCoordinateOrigin,userGetCoordinateDestination);
+                    board.setCoordinateOnPiece(userOrigin,userDestination);
                 }
             }
             turn.next();
@@ -37,9 +37,5 @@ public class Chess {
 
     public static void main(String[] args) {
         new Chess().play();
-    }
-
-    public Coordinate userOriginDialog(){
-        return null;
     }
 }
