@@ -6,8 +6,8 @@ public class Turn {
     private Player current;
 
     public Turn(){
-        playerBlack = new Player(Color.WHITE);
-        playerWhite = new Player(Color.BLACK);
+        playerBlack = new Player(Color.BLACK);
+        playerWhite = new Player(Color.WHITE);
         current = playerWhite;
     }
 

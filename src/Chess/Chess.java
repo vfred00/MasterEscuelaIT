@@ -11,7 +11,6 @@ public class Chess {
     }
 
     public void play(){
-        turn.getCurrent();
         do{
             board.show();
             IO.getInstance().printText("Turno de " + turn.getCurrent().getColor());
