@@ -34,8 +34,9 @@ public class Chess {
                     board.setCoordinateOnPiece(userGetCoordinateOrigin,userGetCoordinateDestination);
                 }
                 //acabo de comprobar que el movimento está permitido
-                turn.next();
+
             }
+            turn.next();
         }while(true);
         //}while(board.getBlackKingAliveState() || board.getWhiteKingAliveState());
     }
