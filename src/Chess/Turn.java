@@ -1,7 +1,5 @@
 package Chess;
 
-import java.util.Random;
-
 public class Turn {
     private Player playerBlack;
     private Player playerWhite;
@@ -10,6 +8,7 @@ public class Turn {
     public Turn(){
         playerBlack = new Player(Color.WHITE);
         playerWhite = new Player(Color.BLACK);
+        current = playerWhite;
     }
 
     public Player next(){
@@ -23,14 +22,4 @@ public class Turn {
         return this.current;
     }
 
-    public Player getRandomPlayer(){
-        Random random = new Random();
-        int randomUser = random.nextInt(2);
-        if (randomUser == 0){
-            this.current = playerBlack;
-            return playerBlack;
-        }
-        this.current = playerWhite;
-        return playerWhite;
-    }
 }

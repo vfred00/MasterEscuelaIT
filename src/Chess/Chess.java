@@ -11,9 +11,8 @@ public class Chess {
     }
 
     public void play(){
-        turn.getRandomPlayer();
+        turn.getCurrent();
         do{
-            turn.next();
             board.show();
             IO.getInstance().printText("Turno de " + turn.getCurrent().getColor());
             int originX = IO.getInstance().readInt("origen X: ");
@@ -35,8 +34,8 @@ public class Chess {
                     //ahora coloco la pieza en el destino
                     board.setCoordinateOnPiece(userGetCoordinateOrigin,userGetCoordinateDestination);
                 }
-
                 //acabo de comprobar que el movimento está permitido
+                turn.next();
             }
         }while(true);
         //}while(board.getBlackKingAliveState() || board.getWhiteKingAliveState());
