@@ -36,7 +36,22 @@ public class Board {
         return pieces.get(coordinate);
     }
 
-    public boolean isCoordinateOnBoard(Coordinate coordinate){
+    public boolean isPieceOnCordinate(Coordinate coordinate){
         return pieces.containsKey(coordinate);
+    }
+
+    public void setCoordinateOnPiece(Coordinate origin, Coordinate destination){
+        if (pieces.containsKey(origin)){
+            //pieces.replace(destination,this.pieces.get(origin));
+            System.out.println("moviendo");
+            Piece pieceTemp = pieces.get(origin);
+            pieces.remove(origin);
+            pieces.put(destination,pieceTemp);
+        }
+    }
+
+    public Piece getBlackKingAliveState(){
+        //pieces.containsValue(Knight.class)
+        return null;
     }
 }

@@ -11,7 +11,7 @@ public abstract class Piece {
         this.alive = true;
     }
 
-    public abstract void move(Coordinate origin, Coordinate destination);
+    public abstract boolean isValidMovement(Coordinate origin, Coordinate destination);
 
     public Color getColor(){
         return this.color;

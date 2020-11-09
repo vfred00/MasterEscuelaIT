@@ -12,7 +12,7 @@ public class Pawn extends Piece{
     }
 
     @Override
-    public void move(Coordinate origin, Coordinate destination){
-
+    public boolean isValidMovement(Coordinate origin, Coordinate destination){
+        return true;
     }
 }
