@@ -1,0 +1,49 @@
+@startuml Chess
+
+	class Chess
+	class Turn
+	class Player
+	class Board
+	class OutBoard
+	class White
+	class Black
+	class Movement
+	class Coordinate
+	class Piece
+	class Pawn
+	class King
+	class Knight
+	class Horizontal
+	class Vertical
+	class Diagonal
+	class L
+
+Chess *--> Turn
+Chess *--> Board
+Chess *--> OutBoard
+
+Turn *--> "2" Player
+
+Player <|-- Black
+Player <|-- White
+Player *--> "16" Piece
+Player ..> Movement
+
+Board *--> "32" Piece
+Board o--> Movement
+
+OutBoard *--> "31" Piece
+
+Piece ..> Coordinate
+Piece *--> Movement
+Piece <|-- King
+Piece <|-- Pawn
+Piece <|-- Knight
+
+Movement o--> Horizontal
+Movement o--> Vertical
+Movement o--> Diagonal
+Movement o--> L
+Movement ..> Coordinate
+
+@enduml
