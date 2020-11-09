@@ -25,7 +25,7 @@ public class Board {
                 if (pieces.containsKey(evaluate) && pieces.get(evaluate).isAlive()) {
                     System.out.print(pieces.get(evaluate).show());
                 } else {
-                    System.out.print(" + ");
+                    System.out.print("·");
                 }
             }
             System.out.println();

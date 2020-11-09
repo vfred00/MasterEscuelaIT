@@ -24,4 +24,8 @@ public class Turn {
         return this.current;
     }
 
+    public Color getCurrentColor(){
+        return this.current.getColor();
+    }
+
 }
