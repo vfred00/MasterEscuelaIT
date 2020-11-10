@@ -15,4 +15,9 @@ public class Pawn extends Piece{
     public boolean isValidMovement(Coordinate origin, Coordinate destination){
         return true;
     }
+
+    @Override
+    public boolean isKing() {
+        return false;
+    }
 }
