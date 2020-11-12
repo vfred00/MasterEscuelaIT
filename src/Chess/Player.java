@@ -29,31 +29,24 @@ public class Player {
     public void move(Board board){
         Coordinate origin = this.getValidCoordinate();
         Coordinate destination = this.getValidCoordinate();
-
-
-
-        List<Coordinate> coordinatesInHorizontal = origin.coordinatesOnHorizontal(destination);
-        for (Coordinate coordinate : coordinatesInHorizontal) {
-            System.out.println("coordenadas: " + coordinate);
-            System.out.println("piezas en coordenada: " + board.isPieceOnCoordinate(coordinate));
-            System.out.println("piezas en coordenadas mismo color: " + board.isPieceOnCoordinateSameColor(coordinate, this.color));
-
-        }
-
-
-
-
+//        List<Coordinate> coordinatesInHorizontal = origin.coordinatesOnHorizontal(destination);
+//        for (Coordinate coordinate : coordinatesInHorizontal) {
+//            System.out.println("coordenadas: " + coordinate);
+//            System.out.println("piezas en coordenada: " + board.isPieceOnCoordinate(coordinate));
+//            System.out.println("piezas en coordenadas mismo color: " + board.isPieceOnCoordinateSameColor(coordinate, this.color));
+//
+//        }
         if (board.isPieceOnCoordinate(origin)
                 && board.getPiece(origin).getColor() == this.getColor()) {
             Piece piece = board.getPiece(origin);
-            piece.isValidMovement(origin, destination);
-            if (board.isPieceOnCoordinate(destination)) {
-                board.getPiece(destination).kill();
-                if (board.getPiece(destination).isKing()) {
-                    board.setDeadKing(true);
+
+            if (piece.isValidMovement(origin, destination)) {
+                if (board.isPieceOnCoordinate(destination)) {
+                    board.getPiece(destination).kill();
+                    if (board.getPiece(destination).isKing()) {
+                        board.setDeadKing(true);
+                    }
                 }
-                board.setCoordinateOnPiece(origin, destination);
-            } else {
                 board.setCoordinateOnPiece(origin, destination);
             }
         }

@@ -6,9 +6,9 @@ public class Rook extends Piece{
     public Rook(Color color) {
         super(color);
         if (this.color == Color.BLACK){
-            this.icon = '*';
+            this.icon = '\u2656';
         } else {
-            this.icon = '~';
+            this.icon = '\u265C';
         }
     }
 

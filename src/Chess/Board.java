@@ -1,7 +1,6 @@
 package Chess;
 
 import java.util.HashMap;
-import java.util.Optional;
 
 public class Board {
     private HashMap<Coordinate, Piece> pieces;
@@ -21,7 +20,7 @@ public class Board {
         pieces.put(new Coordinate(0,7), new Rook(Color.BLACK));
 
         pieces.put(new Coordinate(7,0), new Rook(Color.WHITE));
-        pieces.put(new Coordinate(7,3), new Rook(Color.WHITE));
+        pieces.put(new Coordinate(7,7), new Rook(Color.WHITE));
 
     }
 
@@ -40,10 +39,12 @@ public class Board {
     }
 
     public Piece getPiece(Coordinate coordinate){
+
         return pieces.get(coordinate);
     }
 
     public boolean isPieceOnCoordinate(Coordinate coordinate){
+
         return pieces.containsKey(coordinate);
     }
 
@@ -65,10 +66,12 @@ public class Board {
     }
 
     public boolean isDeadKing(){
+
         return this.deadKing;
     }
 
     public void setDeadKing(boolean deadKing){
+
         this.deadKing = deadKing;
     }
 }
