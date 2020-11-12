@@ -12,16 +12,15 @@ public class Knight extends Piece{
     }
 
     @Override
-    public boolean isValidMovement(Coordinate origin, Coordinate destination) {
+    public boolean isValidMovement(Board board, Coordinate origin, Coordinate destination) {
         //valid movements for Knight algorithm: ////(f1-f2)*(f1-f2) + (c1-c2)*(c1-c2) == 5
         if ((origin.getX()-destination.getX())*(origin.getX()-destination.getX())
                 + (origin.getY()-destination.getY())*(origin.getY()-destination.getY()) == 5){
             System.out.println("movimiento permitido");
             return true;
-        } else {
-            System.out.println("movimiento NO permitido");
-            return false;
         }
+        System.out.println("movimiento NO permitido");
+        return false;
     }
 
     @Override
